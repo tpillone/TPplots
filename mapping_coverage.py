@@ -113,7 +113,7 @@ def samtools_depth2coverage_plot(samtool_depth_file, fasta_file=False, main=Fals
             pushViewport(viewport(layout.pos.row = 2, layout.pos.col = 1))
             par(new=TRUE, fig=gridFIG(), las=1, mar=c(5, 5, 0, 5)) 
 
-            slidingwindowplot_depth(150,5001, cov_data, contig_limits)
+            slidingwindowplot_depth(150,21, cov_data, contig_limits) # 150,5001, cov_data, contig_limits
 
             upViewport()         
 
@@ -122,7 +122,7 @@ def samtools_depth2coverage_plot(samtool_depth_file, fasta_file=False, main=Fals
                     pushViewport(viewport(layout.pos.row = 1, layout.pos.col = 1))
                     par(new=TRUE, fig=gridFIG(), las=1, mar=c(0, 5, 3, 5)) 
                     myseq <- unlist(strsplit(dna_sequence, ""))
-                    slidingwindowplot_GC(2000, 21, myseq, contig_limits)
+                    slidingwindowplot_GC(150, 21, myseq, contig_limits) # 2000, 21, myseq, contig_limits
                     # ,xlab="Nucleotide start position",ylab="GC content"
                     #axis(1, at = seq(0, length(myseq), 10000), labels = seq(0, length(myseq), 10000)/1000, las=2)
                     upViewport()

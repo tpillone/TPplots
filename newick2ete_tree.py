@@ -14,21 +14,22 @@ def plot_phylo(nw_tree,
     import orthogroup2phylogeny_best_refseq_uniprot_hity
 
     ete2_tree = Tree(nw_tree, format=0)
+    print(root)
     if root:
         R = ete2_tree.get_midpoint_outgroup()
         # and set it as tree outgroup
         ete2_tree.set_outgroup(R)
-    ete2_tree.set_outgroup('Bacillus subtilis')
+    #ete2_tree.set_outgroup('Bacillus subtilis')
     ete2_tree.ladderize()
 
     if parenthesis_classif:
-        print ('parenthesis_classif!')
+        #print ('parenthesis_classif!')
         name2classif = {}
         for lf in ete2_tree.iter_leaves():
-            print (lf)
+            #print (lf)
             try:
                 classif = lf.name.split('_')[-2][0:-1]
-                print ('classif', classif)
+                #print ('classif', classif)
                 #lf.name = lf.name.split('(')[0]
                 name2classif[lf.name] = classif
             except:
@@ -60,9 +61,9 @@ def plot_phylo(nw_tree,
         lf.add_face(ff, column=0)
 
         if not show_support:
-            print('support')
+            #print('support')
             for n in ete2_tree.traverse():
-               print (n.support)
+               #print (n.support)
                nstyle = NodeStyle()
                if float(n.support) < 1:
                    nstyle["fgcolor"] = "red"
