@@ -1344,7 +1344,7 @@ class Circos_config:
       if len(chr_pair_list) == 0:
           return ''
       else:
-          for pair in set(chr_pair_list):
+          for pair in set([tuple(i) for i in chr_pair_list]):
               print("one pair", pair)
               all_spacing += self._template_spacing(pair[0], pair[1])
           return all_spacing
